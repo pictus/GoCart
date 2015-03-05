@@ -58,6 +58,10 @@ class PayPal {
 		
 		$this->endpoint = '/nvp';
 		$this->CI =& get_instance();
+		$this->CI->load->model('Settings_model');
+		$this->CI->load->database();
+		$this->CI->load->library('session');
+		$this->CI->load->helper('url');
 		
 		// retrieve settings
 		if ( $settings = $this->CI->Settings_model->get_settings('paypal_express') ) 
